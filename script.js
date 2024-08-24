@@ -17,8 +17,8 @@ document.getElementById('generateScriptBtn').addEventListener('click', function(
         .catch(error => console.error('Error generating script:', error));
 });
 
-function fetchStats() {
-    fetch('https://shiroo.pythonanywhere.com/get_stats')  // Update with your PythonAnywhere Flask server URL
+function fetchStats(userId) {
+    fetch(`https://shiroo.pythonanywhere.com/generate_script/get_stats?user_id=${userId}`)  // Update with your PythonAnywhere Flask server URL
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('statsTable');
