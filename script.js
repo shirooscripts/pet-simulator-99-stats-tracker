@@ -4,21 +4,14 @@ document.getElementById('generateScriptBtn').addEventListener('click', function(
         .then(data => {
             document.getElementById('generatedScript').value = data;
 
-            // Extract the user_id from the generated script
-            const userIdMatch = data.match(/user_id\s*=\s*"(.*?)"/);
-            if (userIdMatch) {
-                const userId = userIdMatch[1];
-                document.getElementById('userId').value = userId;
-                
-                // Now fetch the stats for this user
-                fetchStats(userId);
-            }
+            // Fetch the stats (no need for user_id)
+            fetchStats();
         })
         .catch(error => console.error('Error generating script:', error));
 });
 
-function fetchStats(userId) {
-    fetch(`https://shiroo.pythonanywhere.com/get_stats?user_id=${userId}`)  // Update with your PythonAnywhere Flask server URL
+function fetchStats() {
+    fetch(`https://shiroo.pythonanywhere.com/get_stats`)  // Update with your PythonAnywhere Flask server URL
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('statsTable');
