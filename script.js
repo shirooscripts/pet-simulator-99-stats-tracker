@@ -1,5 +1,14 @@
+document.getElementById('generateScriptBtn').addEventListener('click', function() {
+    fetch('https://shiroo.pythonanywhere.com/generate_script')  // Update with your PythonAnywhere Flask server URL
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('generatedScript').value = data;
+        })
+        .catch(error => console.error('Error generating script:', error));
+});
+
 function fetchStats() {
-    fetch('https://shiroo.pythonanywhere.com/get_stats')  // Update this URL with your actual backend URL
+    fetch('https://shiroo.pythonanywhere.com/get_stats')  // Update with your PythonAnywhere Flask server URL
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('statsTable');
