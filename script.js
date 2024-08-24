@@ -1,5 +1,5 @@
 function fetchStats() {
-    fetch('https://your-backend-service.herokuapp.com/get_stats')  // Update this URL with your actual backend URL
+    fetch('https://shiroo.pythonanywhere.com/get_stats')  // Update this URL with your actual backend URL
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('statsTable');
