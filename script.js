@@ -18,7 +18,7 @@ document.getElementById('generateScriptBtn').addEventListener('click', function(
 });
 
 function fetchStats(userId) {
-    fetch(`https://shiroo.pythonanywhere.com/generate_script/get_stats?user_id=${userId}`)  // Update with your PythonAnywhere Flask server URL
+    fetch(`https://shiroo.pythonanywhere.com/get_stats?user_id=${userId}`)  // Update with your PythonAnywhere Flask server URL
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('statsTable');
@@ -44,5 +44,3 @@ function fetchStats(userId) {
         })
         .catch(error => console.error('Error fetching data:', error));
 }
-
-document.addEventListener("DOMContentLoaded", fetchStats);
