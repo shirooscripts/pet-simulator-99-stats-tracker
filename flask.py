@@ -4,8 +4,6 @@ app = Flask(__name__)
 
 # Example in-memory storage for player data
 player_data = [
-    {"username": "justRandomiuse23", "diamonds": 837, "rank": "Gold"},
-    {"username": "xWildernePonex", "diamonds": 217, "rank": "Silver"}
 ]
 
 @app.route('/update_stats', methods=['POST'])
