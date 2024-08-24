@@ -3,6 +3,16 @@ document.getElementById('generateScriptBtn').addEventListener('click', function(
         .then(response => response.text())
         .then(data => {
             document.getElementById('generatedScript').value = data;
+
+            // Extract the user_id from the generated script
+            const userIdMatch = data.match(/user_id\s*=\s*"(.*?)"/);
+            if (userIdMatch) {
+                const userId = userIdMatch[1];
+                document.getElementById('userId').value = userId;
+                
+                // Now fetch the stats for this user
+                fetchStats(userId);
+            }
         })
         .catch(error => console.error('Error generating script:', error));
 });
